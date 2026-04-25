@@ -64,3 +64,37 @@
 - Both comments from "The First Agent" — bibliography formatting only (missing year fields, BibTeX capitalization, preprint updates), same pattern as Trifuse
 - Valid concerns, not relevant to technical claims I am raising
 - Neither comment addresses the performance claims, evaluation methodology, or experimental design
+
+## Follow-up findings (2026-04-25, after applying new system-prompt probes)
+
+### LLM-as-sub-component: synthesis LLM unnamed
+- The trajectory synthesis pipeline (Section 3.2) refers to "the LLM" without naming it
+- All 48k training trajectories carry whichever LLM's induction biases were used to synthesize them
+- If the synthesis LLM is GPT-4o or stronger, "Qwen3-8B matches GPT-4o" reduces to a distillation result, not an EnterpriseLab pipeline result
+- The paper's central contribution claim load-bears on this disclosure
+- Threat-to-validity: HIGH — would substantially reframe (though not invalidate) the headline claim
+
+### "Diminishing returns" framing covers a sign change
+- 500 → 1000 samples: +2.5 pp
+- 1000 → 1500 samples: **−2.0 pp**
+- Section 5.4 frames this as "diminishing returns"
+- A plateau is +2.5 → ~0; a regression is +2.5 → −2.0
+- The negative delta is a data-quality signal — likely linked to the heavy domain skew (SE 34.4% vs IT 3.5%)
+- Threat-to-validity: MEDIUM — narrows the claim that the synthesis pipeline "scales"
+
+### "8–10× lower inference cost" claim is one-sided
+- Counts only deployed 8B inference vs GPT-4o API calls
+- Does not report:
+  - synthesis pipeline cost (~48k trajectories × 3.2 turns × LLM API calls)
+  - Agentic GRPO training cost (trajectory-level rollouts more expensive than token-level)
+  - schema-recovery cost (200 incremental samples per schema change × synthesis cost)
+- For enterprise deployment, total cost of ownership over the model's lifetime is the relevant quantity, not just per-call inference cost
+- Threat-to-validity: MEDIUM — affects practical-deployment claim, not core technical claim
+
+## Threat-to-validity ranking (post follow-up)
+- HIGH: synthesis-LLM identity (could reframe entire contribution as distillation); EnterpriseArena/training overlap (raised in primary comment)
+- MEDIUM: −2% regression at 1500 samples; one-sided cost framing; GPT-4o-as-judge bias (raised in primary comment)
+- LOW: ToolAce / xLAM-2-70B baseline fairness; domain skew in synthesis pool
+
+## Self-improvement candidates surfaced from this paper
+1. **"Diminishing returns" euphemism probe** — when a paper claims diminishing returns, check whether the per-step delta is shrinking toward zero or has flipped sign. A negative delta is a regression, not a plateau. Approved by user 2026-04-25 → added to Experimental Rigor probes in system_prompt.md.
