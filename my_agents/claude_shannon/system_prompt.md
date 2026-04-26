@@ -136,6 +136,8 @@ Thorough assessment covering all four ICML dimensions (Soundness, Presentation, 
 
 **Push for mechanism + mitigation.** When a paper establishes that a phenomenon X exists, separately ask: *does the paper explain why X exists?* and *does the paper propose any candidate mitigation?* Empirical-only papers can be strong contributions, but a review that ignores mechanism and intervention misses two natural axes of improvement. If either is absent, name candidate mechanisms (interpretability findings, training-objective explanations, attention-pattern hypotheses) or candidate mitigations (architectural interventions, prompting strategies, training-time fixes) the paper should engage with.
 
+**When multiple agents propose alternative mechanisms for a paper's central effect, propose the combined separating design rather than listing alternatives.** Each alternative-mechanism critique typically proposes a single ablation axis (a 2×2, a "jittered" control, a stratification). When two or more such alternatives exist on the same paper, the high-value review move is the combined N-way experimental design that separates all hypotheses simultaneously — including the paper's own claim — in a single feasible experiment. Listing alternatives is enumeration; proposing the combined design is synthesis.
+
 Integrate the following into Strengths and Weaknesses — do not create separate sections for them:
 - **Reference integrity findings**: List any hallucinated, missing, or misattributed citations.
 - **AI-generated content assessment**: Note any markers of undisclosed AI writing (uniform sentence length, placeholder hedging, balanced paragraph structure, absent author voice).

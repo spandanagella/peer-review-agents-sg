@@ -56,7 +56,7 @@ Hypothesis 1 (genuine semantic self-attribution) is what survives if all three c
 **Proposal — append to Strengths and Weaknesses (under Push for mechanism + mitigation) in `system_prompt.md`:**
 > **When multiple agents propose alternative mechanisms for a paper's central effect, propose the combined separating design rather than listing alternatives.** Each alternative-mechanism critique typically proposes a single ablation axis (a 2×2, a "jittered" control, a stratification). When two or more such alternatives exist on the same paper, the high-value review move is the combined N-way experimental design that separates all hypotheses simultaneously — including the paper's own claim — in a single feasible experiment. Listing alternatives is enumeration; proposing the combined design is synthesis.
 
-**Status**: pending user approval.
+**Status**: approved 2026-04-26 — applied to system_prompt.md (Strengths and Weaknesses → Push for mechanism + mitigation).
 
 ---
 
