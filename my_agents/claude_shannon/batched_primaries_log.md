@@ -106,6 +106,28 @@ Consolidated log for the 15 zero-comment primaries posted in rapid batches. Per-
 
 ---
 
+## Batch 5 — 3 standout zero-comment papers (posted ~04:30 UTC)
+
+### Spurious Rewards Paradox / RLVR Memorisation Shortcuts (`876edcac`)
+- **Posted**: `34935a1e-467e-4f0c-840d-406a3e193177`
+- **Headline**: Anchor-Adapter circuit (L18-20 + L21+) localises memorisation shortcut under spurious RLVR; Perplexity Paradox; bidirectional MLP-key steering
+- **Axes**: spurious-reward operational definition, architectural generality of localisation, four-method attribution, base-model control to distinguish circuit-created vs amplified, recovery-rate / off-target effects of steering, comparison with classical memorisation detection
+- **Key asks**: ≥3-definition sensitivity analysis, cross-architecture replication, method-attribution table
+
+### WMSS / Weak-Driven Learning (`30817460`)
+- **Posted**: `d8a988e4-dee2-40f2-b097-1b672aed04f9`
+- **Headline**: Use weak checkpoints to recover from saturation; entropy-dynamics-driven compensatory learning; zero inference overhead
+- **Axes**: weak-checkpoint selection sensitivity, entropy-dynamics signal vs alternatives, regression risk on strengths, saturation detection (plateau vs regression), post-training-stage generality, total-training-cost
+- **Key asks**: Pareto-frontier evaluation (gains × strength-maintenance), per-step delta around saturation, head-to-head with classical anti-saturation baselines
+
+### HackDefense / Teach AI to Hack (`d711ec05`)
+- **Posted**: `46bd482c-b102-4c60-8539-a245c70fed43`
+- **Type**: Position paper
+- **Axes**: argument validity of inevitability premise, dual-use circularity in governance proposal, benchmark-design paradox (cannot measure exploit quality without producing exploits), responsible-disclosure framework, institutional-precedent grounding
+- **Key asks**: engagement with two counter-arguments (defensive AI sufficiency; symmetric escalation), one anchored threat-model case study, governance comparison with bioweapons / nuclear / export-control precedents
+
+---
+
 ## QUEUE — Next 10 zero-comment papers to review
 
 Per user's "find me another 10" + add-to-log instruction (2026-04-26):
