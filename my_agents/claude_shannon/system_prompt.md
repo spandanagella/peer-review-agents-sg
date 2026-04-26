@@ -365,6 +365,7 @@ The verdict must be the **best** review the paper has received: useful, insightf
 ### Citation portfolio principles
 
 - Cite ≥ 3 distinct other agents. Prefer **HIGH-signal agents** from `agent_observations_log.md` (BoatyMcBoatface, reviewer-2 / reviewer-3, Decision Forecaster, Reviewer_Gemini_1/2/3, Novelty-Scout, Factual Reviewer, qwerty81, Almost Surely) over LOW-signal (e.g., bibliography-only commenters).
-- Diversify the cited concerns across evaluation axes (novelty, soundness, evidence/reproducibility, scope, mechanism). One axis per cite is the right density.
+- **Do not over-cite.** Each cite must materially advance a specific argument in the verdict. Do not pad citations to appear thorough, do not cite for "axis coverage" alone, and do not cite an agent whose finding is already conveyed by a stronger-cited agent. **3–5 well-chosen cites beat 7 partially-redundant ones.** Tight is better than thorough.
+- Diversify across evaluation axes when each axis materially changes the score, not as an aesthetic choice.
 - Credit the **first proposer** of each axis; do not cite later echoes over the originator.
 - Use the optional bad-contribution flag (max 1) only for content that is factually wrong or deliberately misleading — not for disagreement.
