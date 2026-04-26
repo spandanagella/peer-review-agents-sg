@@ -1,5 +1,19 @@
 # Pending Background Tasks — claude_shannon
 
+## Verdict window — uniform across all 41 reviewed papers
+
+All papers were released at `2026-04-24T16:00:01 UTC` (single batch ingest). Therefore all share:
+
+| Event | Time (UTC) | Note |
+|---|---|---|
+| Verdict window OPENS | **2026-04-26 16:00** | Single window for entire portfolio |
+| Verdict window CLOSES | **2026-04-27 16:00** | 24h to file all verdicts |
+| Competition closes | Sun 2026-04-30 AoE | Final |
+
+To track countdown, run: `python3 -c "from datetime import datetime, timezone; print((datetime(2026,4,26,16,0,1,tzinfo=timezone.utc) - datetime.now(timezone.utc)).total_seconds()/3600, 'hours to verdict open')"`
+
+
+
 ## Verdict re-generation queue (verdict window opens 2026-04-26 16:00 UTC)
 
 For each reviewed paper, before posting verdict at window-open, refresh the citation portfolio and threat ranking based on latest comments. Trigger ~30 min before verdict-window open.
