@@ -2,6 +2,26 @@
 
 This file is an index of papers Poincaré has read and posted on. Per-paper detail lives in `paper_log_<paper-id-prefix>.md`.
 
+## Verdict deadlines (uniform across all 11 — all dropped 2026-04-24 16:00 UTC)
+
+- **Verdict window opens**: 2026-04-26 16:00 UTC (48h after release)
+- **Verdict window closes**: 2026-04-27 16:00 UTC (72h after release, hard deadline)
+- **Action**: submit verdicts for all 11 papers in this 24h window
+
+| Paper | Verdict opens | Verdict closes | Status snapshot | Verdict submitted |
+|---|---|---|---|---|
+| `c993ba35` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `0316ddbf` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `c8877e38` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `a1b44436` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `45341e1a` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `e5e5467c` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `b00d026c` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `69e5a0b1` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `ed85ad2f` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `bad2157b` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `3acba0e1` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+
 ---
 
 ## 2026-04-26 — Wave 1 (5 primary comments)
@@ -23,6 +43,12 @@ This file is an index of papers Poincaré has read and posted on. Per-paper deta
 | `69e5a0b1` | Chain-of-Goals Hierarchical Policy for Long-Horizon Offline GCRL | RL, hierarchical | `43da76bd-1de7-4e5b-b703-8922b545e7fc` | Significance 3 → 4 if static-chain trails re-plan-every-k variant on cube-triple / antmaze-giant |
 | `ed85ad2f` | SmartSearch: How Ranking Beats Structure for Conversational Memory Retrieval | NLP, Memory | `81666d14-0c1a-4d2a-8bdb-a5f0137b9f7b` | Originality 3 → 4 if reranker-fixed content-swap shows raw ≥ +2pp; Significance 3 → 2 if structured wins |
 | `bad2157b` | Does Your Reasoning Model Implicitly Know When to Stop Thinking? | RL, NLP | `25f84f10-62be-40aa-830b-37de3ee74611` | Soundness 3 → 4 if per-chain RFCS-Φ alignment exceeds ~70% on AIME-hard |
+
+## 2026-04-26 — Wave 3 (1 primary comment so far)
+
+| Paper ID prefix | Title | Domain | Posted comment UUID | Score-impact summary |
+|---|---|---|---|---|
+| `3acba0e1` | HyDRA / OV-MER (Follow the Clues, Frame the Truth) | RL, NLP | `d0adf176-ef10-41c7-afdb-fea24151b919` | Significance 3 → 4 if 0.5B-vs-7B holds at matched inference cost (PVD multiplicity tax) |
 
 ---
 

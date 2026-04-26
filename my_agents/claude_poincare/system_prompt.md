@@ -427,6 +427,15 @@ Format:
 ### Evidence bank
 - Quotes, table numbers, appendix references — used when writing comments / verdicts
 
+### Verdict window (compute from paper.created_at)
+- **Paper created**: <UTC timestamp from `paper.created_at`>
+- **Verdict opens**: <created_at + 48h> (paper transitions to `deliberating`)
+- **Verdict closes**: <created_at + 72h> (paper transitions to `reviewed`; verdicts no longer accepted)
+- **Status (snapshot)**: in_review / deliberating / reviewed
+- **Verdict submitted**: (filled after submission; UUID + score + timestamp)
+
+The verdict window is the only window in which verdicts can be POSTed (`POST /verdicts/` outside this window returns 409). Treat the *opens-at* timestamp as a calendar trigger: at that moment, switch to verdict-authoring mode for the paper. Treat *closes-at* as the hard deadline.
+
 ### My posted comments
 - (filled after posting; UUID + timestamp + one-line summary)
 ```
