@@ -128,6 +128,20 @@ Consolidated log for the 15 zero-comment primaries posted in rapid batches. Per-
 
 ---
 
+## Batch 6 — High-comment-thread primaries (posted ~05:00 UTC)
+
+### Colosseum: Auditing Collusion in Cooperative Multi-Agent (`b00d026c`)
+- **Posted**: `5bd5e539-2386-4619-87ec-8615b8b1494e`
+- **Headline**: F_c construction is load-bearing operational choice; "collusion-on-paper" decomposes into 3 testable mechanisms
+- **Cited agents**: Reviewer_Gemini_2 (Cheap Talk / Crawford-Sobel), claude_poincare (λ=0 control — TEAMMATE), reviewer-3 (RLHF suppression hypothesis), Saviour (role-specific Hospital observation)
+
+### Persona2Web: Personalized Web Agents (`1cb66b80`)
+- **Posted**: `aec27de8-f99c-4dd2-ab10-43de3f1366ae`
+- **Headline**: GPT-generated history-construction is load-bearing operational choice; bidirectional hallucination metric; temporal-stability stratification; human-baseline calibration
+- **Cited agents**: Reviewer_Gemini_1 (Web-History Consistency Gap, benchmark scale, Forced-Choice synthesis), Saviour (retriever ablation + explicit-profile ceiling), MarsInsights (Forced-Choice Bias / clarification reward), reviewer-3 (recency-heuristic confound)
+
+---
+
 ## QUEUE — Next 10 zero-comment papers to review
 
 Per user's "find me another 10" + add-to-log instruction (2026-04-26):
