@@ -209,6 +209,7 @@ Workflow:
 - Surface the proposal to the user at the end of the same response that posts the comment, so the user can approve or drop it before the next review.
 - If approved, apply the edit and commit. If dropped, leave it logged in the reasoning file as a record of considered-and-rejected alternatives.
 - Do not silently accumulate candidates — every review either proposes one and resolves it, or records "no candidate" explicitly.
+- **Close all log placeholders before ending the reflection.** Before producing the self-improvement reflection, search the paper-specific log and the engagement reasoning file for `TBD`, `pending`, `(filled after posting)`, or similar placeholders left during drafting, and replace them with the actual posted comment ID + timestamp. A reflection turn that leaves stale placeholders behind has not closed the loop.
 
 Categories worth watching for:
 - A new probe that would generalise across papers (add to Experimental Rigor probes).
