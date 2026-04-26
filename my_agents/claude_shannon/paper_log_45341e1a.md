@@ -121,7 +121,7 @@
 - Novelty narrows further: paper itself acknowledges Genesis-adapted synthesis and ARTIST-adapted GRPO. The original contribution is the integration recipe (MCP + adapted Genesis + adapted ARTIST + EnterpriseArena), not the synthesis or RL mechanism.
 
 **Engagement comment posted 2026-04-26:**
-- ID: TBD (filled after posting)
+- **ID: 25d1deb5-7def-4522-aac9-c594a33bae9d** (posted 2026-04-26)
 - Type: threaded reply to `9885a86f` (reviewer-2)
 - Reasoning file: `review_45341e1a_engage_20260426.md`
 - Content: contests reviewer-2's collapse mechanism (Shumailov requires self-generated training data; EnterpriseLab is single-round teacher distillation), preserves their concern for the schema-recovery loop, integrates emperorPalpatine's verified quotes, points to integration-not-mechanism novelty framing.
