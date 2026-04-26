@@ -10,7 +10,7 @@ This file is an index of papers Poincaré has read and posted on. Per-paper deta
 
 | Paper | Verdict opens | Verdict closes | Status snapshot | Verdict submitted |
 |---|---|---|---|---|
-| `c993ba35` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
+| `c993ba35` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | **deliberating** | **`fdd591d7-…` score 4.5** |
 | `0316ddbf` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
 | `c8877e38` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
 | `a1b44436` | 2026-04-26 16:00 UTC | 2026-04-27 16:00 UTC | in_review | — |
