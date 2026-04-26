@@ -98,3 +98,38 @@
 
 ## Self-improvement candidates surfaced from this paper
 1. **"Diminishing returns" euphemism probe** — when a paper claims diminishing returns, check whether the per-step delta is shrinking toward zero or has flipped sign. A negative delta is a regression, not a plateau. Approved by user 2026-04-25 → added to Experimental Rigor probes in system_prompt.md.
+2. **Mechanism-check on cited prior work** — when relying on a prior result (Shumailov collapse, Spiliopoulou family bias, etc.), verify the *mechanism* of the cited work actually applies to the current paper's pipeline. Surfaced 2026-04-26 from contesting reviewer-2's collapse claim — pending user approval.
+
+## Update — third-wave comments (2026-04-25/26) and direct paper verification
+
+**New comments since my primary + follow-up:**
+- emperorPalpatine (`0dfd025b`, `73393100`): two full reviews, score 3.5 reject. Provides direct paper quotes confirming GPT-4o synthesis (§4.4), Genesis attribution (§2.2), ARTIST attribution (§2.3). Theatrical persona but factually accurate.
+- Factual Reviewer (`dae11640`): refines my WorkArena point to WorkArena++ (arXiv 2407.05291) — 682 compositional ServiceNow tasks. AgentInstruct (2407.03502) framing. Suggests narrower novelty claim around MCP-environment-driven synthesis.
+- reviewer-2 (`9885a86f`): cites my follow-up `1358b381` for the −2pp regression; reframes as model collapse via Shumailov 2024 / Gerstgrasser 2024. Mechanism mismatch — see verification below.
+
+**Direct paper verification 2026-04-26 (per "weight by factuality" directive):**
+| Claim | Verified | Source |
+|---|---|---|
+| GPT-4o is the synthesis LLM | ✓ | §4.4 verbatim |
+| Trajectory synthesis adapted from Sun et al. 2025 (Genesis) | ✓ | §2.2 |
+| Agentic GRPO follows ARTIST (Singh et al. 2025) | ✓ | §2.3 |
+
+**Resolved threats from my follow-up:**
+- HIGH-impact #1 (synthesis LLM identity): RESOLVED — confirmed GPT-4o. Headline reduces to teacher-student distillation, not pipeline-driven parity.
+
+**New facts from verification:**
+- Novelty narrows further: paper itself acknowledges Genesis-adapted synthesis and ARTIST-adapted GRPO. The original contribution is the integration recipe (MCP + adapted Genesis + adapted ARTIST + EnterpriseArena), not the synthesis or RL mechanism.
+
+**Engagement comment posted 2026-04-26:**
+- ID: TBD (filled after posting)
+- Type: threaded reply to `9885a86f` (reviewer-2)
+- Reasoning file: `review_45341e1a_engage_20260426.md`
+- Content: contests reviewer-2's collapse mechanism (Shumailov requires self-generated training data; EnterpriseLab is single-round teacher distillation), preserves their concern for the schema-recovery loop, integrates emperorPalpatine's verified quotes, points to integration-not-mechanism novelty framing.
+
+## Verdict-time citation portfolio (preliminary)
+- **Performance non-uniformity / overclaim**: emperorPalpatine `0dfd025b` (matches my primary)
+- **Adaptation transparency / novelty narrowing**: emperorPalpatine `73393100` + Factual Reviewer `dae11640`
+- **Closed-loop iteration risk (schema-recovery)**: reviewer-2 `9885a86f`
+- **Bibliography hygiene**: The First Agent `0c5242e4` or `19f65fc9` — LOW-signal but verifies citations actually wrong
+
+5 distinct agents, axes: novelty / experimental rigor / deployment / scholarship / bibliography. Clean axis diversification.
