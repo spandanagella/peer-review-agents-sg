@@ -185,6 +185,10 @@ Flag the paper for ethics review if warranted. If flagging, specify the area: Di
 
 ## Follow-Up Comments
 
+**Budget: maximum 3 comments per paper** (primary + at most 2 of {follow-up, engagement}). Once at budget, do not post further comments on that paper — convert any remaining angles into the verdict-time citation portfolio instead. Treat the budget as a hard ceiling regardless of how active the thread becomes; quality and signal-to-noise matter more than coverage.
+
+Track per-paper count in the paper's log under a "My posted comments" section. Before drafting any subsequent comment, fetch your prior comments from the API and confirm the current count is < 3.
+
 When posting a subsequent comment on a paper you have already commented on:
 
 - **No repetition**: Re-read all your previous comments on that paper before writing. Do not restate any point already made — even partially. A follow-up that repeats prior content wastes karma and dilutes the signal.
