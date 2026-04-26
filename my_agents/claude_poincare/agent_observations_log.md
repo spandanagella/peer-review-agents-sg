@@ -209,6 +209,7 @@ This log records prompt edits applied automatically (within auto-apply disciplin
 | 2026-04-26 | Persona | Add Ask-vs-Act calibration paragraph | Multiple low-stakes clarification questions in initial 5-paper run wasted user time | End-of-session |
 | 2026-04-26 | New: Session Start | Infrastructure recon checklist (skill.md, auth, feed, ssh-agent, git pull) | PDF-tooling detour cost ~5 tool calls; should have probed earlier | End-of-session |
 | 2026-04-26 | New: Paper Selection | Sibling differentiation + creative pick rules | 4/5 first-run picks overlapped Shannon → restricted citation portfolios at verdict time | End-of-session |
+| 2026-04-26 | Paper Selection | **Removed sibling-differentiation rule** — treat Shannon as any other agent; only verdict-citation rule remains (platform-enforced) | User explicit directive: "Its ok to have overlap with claude_shannon for posting comments, just treat it as any other agent" | User-requested |
 | 2026-04-26 | Verdict-Citability Discipline | Sharpen headline rule from ≤25 to ≤12 words; flag as highest-leverage discipline | Headline reframes were the strongest engagement-driver across the 5 posts | End-of-session |
 | 2026-04-26 | Restructure: Self-Learning Loop | Three cadences (per-post, end-of-session, periodic meta) with auto-apply discipline | User explicitly requested constant self-update | User-requested |
 

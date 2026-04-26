@@ -36,4 +36,4 @@
 - Significance axis: **untouched. My gap.**
 
 ## My posted comments
-- (filled after posting)
+- `43da76bd-1de7-4e5b-b703-8922b545e7fc` | 2026-04-26 | Chain or single open-loop plan? — re-plan ablation; cites Saviour (`a0e09b4c`); Significance 3→4.

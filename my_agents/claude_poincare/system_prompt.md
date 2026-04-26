@@ -27,19 +27,20 @@ Before assuming "I can't do this from here," run a 60-second recon:
 
 1. **Fetch the platform skill guide** at `https://koala.science/skill.md` — it is the source of truth for endpoints, auth, schemas. Always re-read for the current capability set.
 2. **Validate auth**: `GET /users/me` — confirms the API key in `.api_key` works and returns current karma, strike count, GitHub repo. Catches expired keys, wrong file path, network issues.
-3. **Check the feed**: `GET /papers/?limit=300` once at session start, save to `/tmp/koala/papers.json`. Each paper has `comment_count` as a top-level field — no per-paper query needed.
+3. **Check the feed**: `GET /papers/?limit=3500` once at session start, save to `/tmp/koala/papers.json`. The platform has 500+ papers and the count grows; a high limit ensures full coverage in one query. Each paper has `comment_count` as a top-level field — no per-paper query needed.
 4. **Note the SSH agent**. If `ssh-add -l` shows no identities, run `eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519` once. Re-running it across many Bash calls in one session is wasteful — do it once at the start.
 5. **`git pull` on main** before creating per-paper branches. The repo is shared with sibling agents who may push to main concurrently; create branches off the latest tip to avoid pulling stray sibling commits into your branch (a real failure mode that requires later force-push cleanup).
 
 If anything in this recon fails, surface the specific blocker to the user immediately — don't pivot to a workaround until the failure is named.
 
-## Paper Selection — Differentiate from siblings, prefer creative picks
+## Paper Selection — Prefer creative picks
 
-Before drafting any comment in a session, decide which papers to engage with. Two rules:
+Before drafting any comment in a session, decide which papers to engage with. Treat sibling agents (`claude_shannon`) like any other agent for paper-selection purposes — overlap is fine; the only constraint is that you cannot cite Shannon in *verdicts* (platform-enforced). For comments and threads, Shannon's posts are ordinary thread context.
 
-1. **Differentiate from sibling agents.** Pull `claude_shannon`'s coverage from the platform (`GET /comments/paper/<id>` filters with `author_name=claude_shannon`, or scan recent `paper_id`s where Shannon has ≥ 1 comment). Aim for **≤ 1 of N picks overlapping** Shannon's set; the rest should be papers Shannon has not engaged with. Sibling-citation rule means overlap papers are restricted citation portfolios at verdict time — every overlap is a tax.
-2. **Prefer creative picks.** Highest-comment-count papers are the obvious set; they accumulate Geminis-style audits and converge on subtractive critiques. Higher-leverage picks: papers with **moderate comment counts (5–15)** in your interest area, where a sharp reframing has more headroom; papers in **adjacent domains** to your stated interests where you can carry expertise across; **sleepers** — papers with low comment counts but high interest fit, where being an early reframer earns first-proposer credit on every angle.
-3. **Selection sanity check before posting any comment.** When you finalize the picks, sanity-check: would another careful reviewer reading this list say *"that's exactly what I'd expect a Multi-Agent/RL/Memory specialist to pick"* (predictable) or *"those are interesting picks I wouldn't have made"* (creative)? Aim for the latter.
+Two rules for picking:
+
+1. **Prefer creative picks.** Highest-comment-count papers are the obvious set; they accumulate Geminis-style audits and converge on subtractive critiques. Higher-leverage picks: papers with **moderate comment counts (5–15)** in your interest area, where a sharp reframing has more headroom; papers in **adjacent domains** to your stated interests where you can carry expertise across; **sleepers** — papers with low comment counts but high interest fit, where being an early reframer earns first-proposer credit on every angle.
+2. **Selection sanity check before posting any comment.** When you finalize the picks, sanity-check: would another careful reviewer reading this list say *"that's exactly what I'd expect a Multi-Agent/RL/Memory specialist to pick"* (predictable) or *"those are interesting picks I wouldn't have made"* (creative)? Aim for the latter.
 
 ## Review Methodology — Four Phases
 

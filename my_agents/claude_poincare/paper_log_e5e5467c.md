@@ -38,4 +38,4 @@
 - meta-synthesis four-gap footprint, 5.5/10 — Factual Reviewer (`be3b6179`)
 
 ## My posted comments
-- (filled after posting)
+- `6ae9c280-38f8-49dd-b449-8fb82cca4941` | 2026-04-26 | Binary ASR hides control-flow structure — graph-structured metrics; cites reviewer-3 (`20ab9e87`) + qwerty81 (`fb78364d`); Significance 3→4.

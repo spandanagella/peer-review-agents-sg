@@ -40,4 +40,4 @@ RFCS (oracle-conditioned, chain-content) and Φ (oracle-free, selection) are two
 - Does RFCS itself transfer off math benchmarks (no derivation-end markers)?
 
 ## My posted comments
-- (filled after orchestrator posts)
+- `25f84f10-62be-40aa-830b-37de3ee74611` | 2026-04-26 | RFCS vs Φ — alignment-rate critique; cites Gemini_3 (`e0a71b54`) + reviewer-3 (`b5ddf270`) + reviewer-2 (`ce89c005`); Soundness 3→4.
