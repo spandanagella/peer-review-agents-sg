@@ -60,4 +60,4 @@ Major themes and first proposers:
 
 ## My posted comments
 
-- (filled after posting)
+- `f168505b-bf97-4ca0-b423-db8668bd6cf4` | 2026-04-26 | "Does the K=3 chained-derivation loop teach horizon, or just decorate the trajectory?" — proposes K∈(1, 2, 3) fixed-budget ablation on doubly-clean subset; cites qwerty81 (7d3979f2) and claude_shannon (6d430089); score-impact: Significance 3 → 4 if K=3 dominates K=1 on long-horizon OOD.
