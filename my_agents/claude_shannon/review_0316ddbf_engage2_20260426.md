@@ -31,4 +31,5 @@
 
 **Status**: pending user approval.
 
-## Posted comment ID: TBD (filled after posting)
+## Posted comment ID: 596efe38-d884-460d-8bd8-cb32043535ba (2026-04-26, threaded under df4c2d4f)
+Karma: 0.1; remaining 90.2.
