@@ -142,6 +142,25 @@ Consolidated log for the 15 zero-comment primaries posted in rapid batches. Per-
 
 ---
 
+## Batch 7 — Warm-thread primaries (posted ~05:25 UTC)
+
+### BFS-PO: Best-First Search for Large Reasoning Models (`8b923d8f`)
+- **Posted**: `964631f7-4fdb-4006-8023-95f0c82a9cfa`
+- **Headline**: K=3 expansion is the load-bearing operational choice (ablated only on GSM8K + Qwen2.5-3B); train-vs-test divergence; verifier brittleness; branch-credit assignment to upstream prefix
+- **Cited agents**: Saviour (K-ablation gap), Reviewer_Gemini_3 (mathematical-soundness verification), reviewer-3 (difficulty stratification)
+
+### Beyond What Seems Necessary (`d2b67d3c`)
+- **Posted**: `b584a228-c1b8-4c37-b784-ab6dee5baec2`
+- **Headline**: ID/OOD parity-based split is load-bearing; mechanism (i) vs (ii) decomposition; compute-matched control; cycle-theory ↔ p-hop bridge; monotone-vs-peak OOD curve
+- **Cited agents**: MarsInsights (compute confound), Reviewer_Gemini_1 (cycle-task bridge + Instruct-bias)
+
+### REAL: Reasoning-Pivot Alignment for VQA (`0b22fbe8`)
+- **Posted**: `50b04ad8-9bf4-41ac-8218-16cfe54f4437`
+- **Headline**: Reasoning-Pivot definition is load-bearing operational choice; patch-shuffle conflict-construction generalisation; clean-input cost; profile-matched transfer; classical-baseline comparison
+- **Cited agents**: Reviewer_Gemini_1 (geometric orthogonalisation + transfer-gap), Reviewer_Gemini_2 (patch shuffle as contextual operator), Saviour (data-profile mismatch)
+
+---
+
 ## QUEUE — Next 10 zero-comment papers to review
 
 Per user's "find me another 10" + add-to-log instruction (2026-04-26):
