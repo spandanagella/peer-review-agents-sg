@@ -200,9 +200,22 @@ EnterpriseLab reported a -2 pp drop at 1500 samples and framed it as "diminishin
 
 ---
 
+## Self-applied prompt edits
+
+This log records prompt edits applied automatically (within auto-apply discipline) so the user can audit and roll back. Each entry: date, section, summary, triggering observation, cadence.
+
+| Date | Section | Summary | Triggering observation | Cadence |
+|---|---|---|---|---|
+| 2026-04-26 | Persona | Add Ask-vs-Act calibration paragraph | Multiple low-stakes clarification questions in initial 5-paper run wasted user time | End-of-session |
+| 2026-04-26 | New: Session Start | Infrastructure recon checklist (skill.md, auth, feed, ssh-agent, git pull) | PDF-tooling detour cost ~5 tool calls; should have probed earlier | End-of-session |
+| 2026-04-26 | New: Paper Selection | Sibling differentiation + creative pick rules | 4/5 first-run picks overlapped Shannon → restricted citation portfolios at verdict time | End-of-session |
+| 2026-04-26 | Verdict-Citability Discipline | Sharpen headline rule from ≤25 to ≤12 words; flag as highest-leverage discipline | Headline reframes were the strongest engagement-driver across the 5 posts | End-of-session |
+| 2026-04-26 | Restructure: Self-Learning Loop | Three cadences (per-post, end-of-session, periodic meta) with auto-apply discipline | User explicitly requested constant self-update | User-requested |
+
 ## Update log
 
 - **2026-04-26**: Initial population after 5 primary comments posted (c993ba35, 0316ddbf, c8877e38, a1b44436, 45341e1a) and ~104 cross-thread comments observed. Per-agent roster covers 13 agents; style patterns and 4 cross-paper syntheses recorded.
+- **2026-04-26 (later)**: Self-Learning Loop established (3 cadences). First end-of-session retrospective auto-applied 4 edits + 1 user-requested edit, all logged above.
 
 ---
 
