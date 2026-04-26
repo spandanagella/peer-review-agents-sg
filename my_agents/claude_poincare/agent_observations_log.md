@@ -72,11 +72,11 @@ Citation weight is private guidance for verdict-time citation choice, not a mora
 
 ### Decision Forecaster — **HIGH**
 
-- **Strengths**: separates *mechanism* vs. *deployment risk* — a reusable decomposition. Conditional-on-failure framing is sharp ("the AUROC drop measures severity conditional on being in a bad regime, not the end-to-end probability"). Also tarball-verifies exemplar-evaluation coupling claims with concrete file evidence.
+- **Strengths**: separates *mechanism* vs. *deployment risk* — a reusable decomposition. Conditional-on-failure framing is sharp. Tarball-verifies exemplar-evaluation coupling with concrete file evidence. **New observation (c993ba35, comment `b1ba9d49`)**: surfaces *Information Asymmetry* concerns in proof constructions — training-time vs deployment-time observability mismatches that inflate best-response guarantees. This is a reusable probe class: when a proof constructs an "induced MDP" for one agent, ask whether the induced state is what the agent actually sees at deployment.
 - **Weaknesses**: less prolific.
-- **What I've learned from them**: the *mechanism-vs-deployment* decomposition is a reusable analytical move — for any "the bias / failure exists" claim, ask separately "does it matter end-to-end?"
+- **What I've learned from them**: (1) *mechanism-vs-deployment* decomposition for any "bias/failure exists" claim; (2) *induced-MDP information-asymmetry* probe — does the proof's environment match the deployment environment?
 - **Citation weight in verdicts**: HIGH.
-- **Comments observed**: 3 across 0316ddbf, c8877e38.
+- **Comments observed**: 4 across 0316ddbf, c8877e38, c993ba35.
 
 ### Factual Reviewer — **MIXED**
 
@@ -125,10 +125,27 @@ Citation weight is private guidance for verdict-time citation choice, not a mora
 - **Bad-contribution flag candidacy**: not warranted (content is real, just narrow).
 - **Comments observed**: 5+ across all 5 papers.
 
+### Mind Changer — **HIGH** (newly observed, c993ba35)
+
+- **Strengths**: synthesizer pattern. Comments open with "Restating the target" to frame the disputed claim, then position other agents' findings as composing or extending. Cited my primary comment by UUID (`c97698ba`) and built a synthesis around it — a useful indicator that headline reframes land.
+- **Weaknesses**: posts near-duplicate restatements (`0503690b`, `ac07fa90`); slight noise.
+- **What I've learned from them**: the *Restate-the-target* opening pattern is a high-signal way to anchor a synthesis comment. Adopt for follow-up comments where multiple agents' findings need to be composed.
+- **Citation weight in verdicts**: HIGH (when the synthesis is novel; ignore restatements).
+- **Comments observed**: 3 on c993ba35 (`0503690b`, `ac07fa90`, `58cd1069`).
+
+### Code Repo Auditor — **HIGH** for reproducibility/code
+
+- **Strengths**: static audit of released repos with concrete file paths and algorithm-vs-code mismatch identification. Complements BoatyMcBoatface's execution-failure audits with structural-correctness audits of the code itself.
+- **Weaknesses**: only reproducibility/code axis.
+- **What I've learned from them**: combine *execution audit* (does the code run?) with *static audit* (does the code implement the algorithm in the paper?) — these surface different failure modes.
+- **Citation weight in verdicts**: HIGH for Reproducibility / Soundness axes.
+- **Comments observed**: 1 on c993ba35 (`7ad65189`); also seen on 1d092ab2, 59386b0e, 062f9b19, 429ba512, 613a4e69, df5a92f8 (cross-paper presence noted).
+
 ### Other agents observed (sparse data, monitor for further patterns)
 
 - **0a07cb4f's commenters** (not yet read in depth): no profile yet.
 - **Forensic Reviewer Gemini 1** — appears to be an alias for Reviewer_Gemini_1; treat as same identity.
+- **O_O** — observed on c993ba35 (`b1f8d387`) doing reproducibility-signal manuscript audit; thin profile so far.
 
 ---
 
@@ -218,6 +235,9 @@ This log records prompt edits applied automatically (within auto-apply disciplin
 | 2026-04-26 | Persona | **New traits: Significance-discriminating + Respectful in critique** — distinguish reframings from incremental-engineering wins; phrase critique in opportunity-cost terms; critique the paper, not the authors; Poincaré-namesake generosity model | User directive: "cares about impact and novelty… discourages incremental work that wastes compute… respectful when asking critical questions… inspired from Poincaré scientist" | User-requested |
 | 2026-04-26 | Persona | **Secondary guiding principle** added: Poincaré quote *"The aim of science is not things in themselves, but the relations between things"* — frames the reviewer's role as surfacing relations the paper missed | Same directive as above | User-requested |
 | 2026-04-26 | Paper Learning Log template | **New required section: `## Verdict window`** per paper_log — paper created_at, verdict opens (+48h), verdict closes (+72h), status snapshot, verdict-submitted slot. Top-level `paper_log.md` index gains a verdict-deadline table | User explicit directive: "For every paper reviewed have a counter on the verdict submission time" | User-requested |
+| 2026-04-26 | Verdict Authoring → Authoring workflow | **New rule: refresh comments via API immediately before drafting verdict.** Threads grow 50%+ between primary-comment time and verdict-window time; drafting against stale snapshots misses load-bearing new critiques (caught in c993ba35 verdict — 27→47 comments, 2 new HIGH-impact concerns). Never draft on stale data; surface material changes to user before posting. | User explicit directive: "Always refresh before drafting verdict so you have all the information and not missing anything" | User-requested |
+| 2026-04-26 | Verdict Authoring → body structure | **New preferred structure**: Summary → Strengths → Weaknesses → Questions → Ratings → Overall → Justification. Order weaknesses by priority *through prose*, not H/M/L labels. Labels belong in the reasoning file, not the public verdict body. | User explicit directive: "Group all ratings under: Ratings section. ... Don't explicitly mark high, medium, low weaknesses but make it clear in the points." | User-requested |
+| 2026-04-26 | Verdict Authoring → citation discipline | **Citation prose discipline**: every `[[comment:UUID]]` paired with the agent's name + own analytical extension. No pure restatement. Use structural-relation verbs ("extending", "composing with", "sharpening", "supports my read of"). Each citation earns its keep by handing into your argument. | User explicit directive: "Don't just cite the agents, add your own arguments as well along with them. ... These citations should look natural." | User-requested |
 | 2026-04-26 | Verdict-Citability Discipline | Sharpen headline rule from ≤25 to ≤12 words; flag as highest-leverage discipline | Headline reframes were the strongest engagement-driver across the 5 posts | End-of-session |
 | 2026-04-26 | Restructure: Self-Learning Loop | Three cadences (per-post, end-of-session, periodic meta) with auto-apply discipline | User explicitly requested constant self-update | User-requested |
 
