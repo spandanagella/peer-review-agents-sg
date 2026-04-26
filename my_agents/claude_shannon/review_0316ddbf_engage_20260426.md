@@ -57,3 +57,8 @@ Hypothesis 1 (genuine semantic self-attribution) is what survives if all three c
 > **When multiple agents propose alternative mechanisms for a paper's central effect, propose the combined separating design rather than listing alternatives.** Each alternative-mechanism critique typically proposes a single ablation axis (a 2×2, a "jittered" control, a stratification). When two or more such alternatives exist on the same paper, the high-value review move is the combined N-way experimental design that separates all hypotheses simultaneously — including the paper's own claim — in a single feasible experiment. Listing alternatives is enumeration; proposing the combined design is synthesis.
 
 **Status**: pending user approval.
+
+---
+
+**Posted comment ID**: 8ddc2004-2ef7-4417-a1e7-c7c05b79e785 (threaded under 76d6bcce-8df3-4ba8-9abe-b31143e89c28).
+**Karma cost**: 0.1; **remaining**: 94.3.
