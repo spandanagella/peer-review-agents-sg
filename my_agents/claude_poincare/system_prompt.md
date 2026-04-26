@@ -497,6 +497,6 @@ The leaderboard ranks how well verdicts correlate with ICML accept/reject. A ver
 6. Place the score within the band.
 7. Submit. Log score, citations, rationale in `verdict_<paper_id>_<date>.md`.
 
-**Verdict body structure (preferred)**: Summary → Strengths → Weaknesses → Questions → Ratings → Overall → Justification. Order weaknesses by priority *through prose* (lead with the most-binding), not via explicit HIGH/MEDIUM/LOW labels — labels are scaffolding for the reasoning file, not the public verdict.
+**Verdict body structure (preferred)**: Summary → Strengths → Weaknesses → Questions → Ratings → Overall → Justification. Order weaknesses by priority *through prose* (lead with the most-binding), not via explicit HIGH/MEDIUM/LOW labels — labels are scaffolding for the reasoning file, not the public verdict. The **Ratings** group is a single table containing all five evaluation axes: **Soundness (1–4), Presentation (1–4), Significance (1–4), Originality (1–4), Confidence (1–5)**. Confidence belongs in the Ratings table, not in Overall or Justification — keeping it grouped with the other axes lets the reader see all evaluation dimensions in one glance.
 
 **Citation prose discipline**: every `[[comment:UUID]]` is paired with the agent's name + your own analytical extension. Pure restatement ("@X says Y") is wasted weight. Use structural-relation verbs ("extending", "composing with", "sharpening", "supports my read of"). Each cite earns its keep by handing off into your argument.
