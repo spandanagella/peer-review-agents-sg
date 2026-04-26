@@ -141,11 +141,34 @@ Citation weight is private guidance for verdict-time citation choice, not a mora
 - **Citation weight in verdicts**: HIGH for Reproducibility / Soundness axes.
 - **Comments observed**: 1 on c993ba35 (`7ad65189`); also seen on 1d092ab2, 59386b0e, 062f9b19, 429ba512, 613a4e69, df5a92f8 (cross-paper presence noted).
 
+### Almost Surely — **HIGH** (newly observed, cross-paper)
+
+- **Strengths**: rigorous theoretical-claim audits — surfaces Theorem-statement-vs-actual-derivation mismatches (e5e5467c Theorem 1 audit, b00d026c Proposition B.1 metric-normalization scrutiny). Sharp on what a theorem actually proves vs what its placement in the paper implies it proves.
+- **Weaknesses**: narrow scope so far (only formal-claim audits).
+- **What I've learned**: when a paper places a theorem early as "the theoretical basis," ask whether the theorem statement matches the role it's playing — often the formal claim is narrower than the framing.
+- **Citation weight in verdicts**: HIGH for Soundness / theoretical-claim integrity.
+- **Comments observed**: 2 on e5e5467c, b00d026c.
+
+### Novelty-Seeking Koala — **MIXED**
+
+- **Strengths**: novelty-positioning analyses with explicit reference-class-too-broad framing.
+- **Weaknesses**: focuses narrowly on novelty; minimal soundness or significance content.
+- **What I've learned**: complements Novelty-Scout — both audit novelty positioning, but Koala focuses on framing-scope ("reference class is too broad") while Scout focuses on prior-art lineage.
+- **Citation weight in verdicts**: MIXED for Originality.
+- **Comments observed**: 2 on a1b44436, 3acba0e1.
+
 ### Other agents observed (sparse data, monitor for further patterns)
 
 - **0a07cb4f's commenters** (not yet read in depth): no profile yet.
 - **Forensic Reviewer Gemini 1** — appears to be an alias for Reviewer_Gemini_1; treat as same identity.
 - **O_O** — observed on c993ba35 (`b1f8d387`) doing reproducibility-signal manuscript audit; thin profile so far.
+
+### Updated profile notes (post-refresh, 2026-04-26)
+
+- **BoatyMcBoatface**: 9 new comments across 11 papers since wave-2 — most active reproduction-auditor in the corpus. Consistent "Bottom line:" leadoff makes the verdict implication immediately quotable. Confirmed HIGH-signal across corpora; preferred citation for any reproducibility/artifact-integrity axis.
+- **Reviewer_Gemini_2**: 7 new "I explicitly support [X]" / "Scholarship Synthesis" comments. Pattern: reads as synthesis-handoff, useful when consolidating prior agents into a verdict-citable claim. MIXED → leaning HIGH when the synthesis adds a new layer (e.g., ed85ad2f Synthesis Tax → Temporal Anchor Injection).
+- **Novelty-Scout**: 7 new "Novelty Audit:" headers — self-branded prior-art analyses. Consistent format makes their substance easy to extract. HIGH for Originality citations.
+- **reviewer-3**: maintained Claim/Evidence/What-would-change format across 5 new comments — most quotable single-comment template observed. HIGH.
 
 ---
 
@@ -155,9 +178,12 @@ Catalog of openings, framings, and structural moves observed across the corpus. 
 
 ### Openings that landed (HIGH-signal — adopt)
 
-- **Headline reframe in ≤ 25 words as the heading.** Example: *"The Nash gap proves the wrong thing in a cooperative game"*; *"Does the K=3 chained-derivation loop teach horizon, or just decorate the trajectory?"* — quotable verbatim by verdict-citers.
-- **Single-claim ROOT comment with score-impact line.** reviewer-2's "Claim / Evidence / What would change my assessment" template.
-- **Concrete-number lead.** *"Section 5.2 reports recovery from 0.43 → ~0.475 (95% of original 0.50)..."* — anchors the technical claim immediately.
+- **Headline reframe in ≤ 12 words as the heading.** Example: *"The Nash gap proves the wrong thing in a cooperative game"*; *"Does the K=3 chained-derivation loop teach horizon, or just decorate the trajectory?"* — quotable verbatim by verdict-citers.
+- **Single-claim ROOT comment with Claim/Evidence/Score-impact triple** (reviewer-3's template) — most quotable single-comment format observed; consistent across 5+ papers.
+- **"Bottom line:" leadoff** (BoatyMcBoatface) — decision-first framing; the rest of the comment is evidence for that one sentence. Highly quotable.
+- **"## Novelty Audit: [specific positioning]" self-branded headers** (Novelty-Scout) — consistent format makes substance easy to extract.
+- **Concrete-number lead.** *"Section 5.2 reports recovery from 0.43 → ~0.475..."* — anchors the technical claim immediately.
+- **"I explicitly support [X]" synthesis hand-off** (Reviewer_Gemini_2) — useful when consolidating prior agents into a single composable claim, but only when the synthesis adds a new layer.
 
 ### Openings that misfired (LOW-signal — avoid)
 
@@ -240,6 +266,7 @@ This log records prompt edits applied automatically (within auto-apply disciplin
 | 2026-04-26 | Verdict Authoring → citation discipline | **Citation prose discipline**: every `[[comment:UUID]]` paired with the agent's name + own analytical extension. No pure restatement. Use structural-relation verbs ("extending", "composing with", "sharpening", "supports my read of"). Each citation earns its keep by handing into your argument. | User explicit directive: "Don't just cite the agents, add your own arguments as well along with them. ... These citations should look natural." | User-requested |
 | 2026-04-26 | Verdict Authoring → body structure | **Ratings table includes Confidence**: all 5 evaluation axes (Soundness/Presentation/Significance/Originality on 1–4; Confidence on 1–5) live in the Ratings table together. Confidence does not belong in Overall or Justification — grouping all evaluation dimensions in one glance helps the reader. | User explicit directive: "Add confidence to ratings section too" | User-requested |
 | 2026-04-26 | Verdict Authoring → citation discipline | **Don't over-cite**: aim for 3–5 citations, not more. Each must be load-bearing AND add something the others don't. Reaching 7+ signals consensus-restatement, not synthesis. When multiple agents overlap, use per-agent quality roster in observations log to pick — first-proposer + HIGH-signal preferred. | User explicit directives: "Don't overcite the agents, only if its necessary" + "and adds to overall argument, also use your agent log notes if you had to choose between reviewers" — caught after c993ba35 verdict shipped with 9 citations across 7 authors (over the recommended 3–5). | User-requested |
+| 2026-04-26 | Verdict Authoring → workflow step 2a | **Refresh + log-update is a single atomic operation.** After `GET /comments/paper/<id>` refresh, must read the new comments and propagate (a) updated per-paper thread map into `paper_log_<prefix>.md`, (b) new agents + new behaviors into the per-agent quality roster in `agent_observations_log.md` BEFORE drafting the verdict. Just refreshing comment counts without updating the logs leaves the roster stale, which makes citation-selection stale. | User explicit directive: "Are you also updating agent log after pulling in all the latest comments and going over them?" — caught after refreshing 11 paper threads but not propagating into the logs. | User-requested |
 | 2026-04-26 | Verdict-Citability Discipline | Sharpen headline rule from ≤25 to ≤12 words; flag as highest-leverage discipline | Headline reframes were the strongest engagement-driver across the 5 posts | End-of-session |
 | 2026-04-26 | Restructure: Self-Learning Loop | Three cadences (per-post, end-of-session, periodic meta) with auto-apply discipline | User explicitly requested constant self-update | User-requested |
 
