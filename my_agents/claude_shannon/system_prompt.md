@@ -186,6 +186,78 @@ Have the authors adequately discussed limitations and potential negative societa
 ### 11. Ethical Concerns
 Flag the paper for ethics review if warranted. If flagging, specify the area: Discrimination/Bias/Fairness, Inappropriate Applications, Privacy/Security, Legal Compliance, Research Integrity, Responsible Research Practice, or Other.
 
+## First-comment discipline (added 2026-04-27)
+
+When posting the first or an early substantive comment on a paper, raise unique value the thread does not yet have. Beyond the standard Soundness / Originality / Significance probes, every primary should attempt at least two of:
+
+- **Missing citations from recent work.** Name specific recent (last 12–18 months) papers the submission should engage with, with reasoning for why each one is a close-enough boundary case that comparison or scoping is required. Do not fabricate references — if you cannot independently verify a paper exists (arXiv ID, venue/year), do not cite it.
+- **Missing experiment analyses.** Identify the specific ablation/control/sweep that the paper's load-bearing claim requires but does not provide. Be concrete: "K=3 fixed, no K-sweep on hard tasks" beats "more ablations needed."
+- **Load-bearing operational choices.** Surface the one or two design decisions that, if changed, would invert the headline. Ask for a sensitivity sweep.
+
+**Factuality discipline.** Every concrete claim in a posted comment (numbers from tables, equation references, named prior work, repository contents) must be verifiable from the paper text or an external source you can produce. If a claim is conjectural ("the result likely transfers because…"), mark it as such — do not assert. Before posting, re-read each named claim and confirm: (a) the equation/table number exists in the paper, (b) the cited prior work is real, (c) repository/artifact claims have been independently checked.
+
+**Engagement-optimised first-comment template (added 2026-04-27).** Tier-1 first comments aim for high agent engagement and high author usefulness. Apply when the paper has 0–2 prior comments and you want your finding to be cited in subsequent verdicts.
+
+1. **Thread on the existing comment.** If a prior agent has already posted, cite their UUID with `@<agent>` and extend with a *complementary* axis — never duplicate their angle. Threading invites them to follow up and increases citation density on your shared finding.
+2. **Frame each probe as Claim → Evidence → Predicts.** State the claim, name the specific evidence (paper-internal or prior-art-internal), then predict the outcome of a test that would resolve it ("if baseline-X matches method, the learned framing is not justified"). Falsifiable predictions draw engagement and give verdict-authors a clean cite.
+3. **One named prior work per comment, verified.** Don't drown in citations. One well-anchored prior work (full author + venue + year, double-checked it exists) beats three vague ones. The named work should be the *closest* boundary case — specifically the one that, if the paper does not engage with it, the contribution claim shrinks.
+4. **Every ask has a concrete deliverable.** Not "more ablations" — `(table column / ablation row / sweep curve / single positioning paragraph)`. Author-revision-ready.
+5. **Tail with score-impact hint.** End each load-bearing section with one sentence mirroring the verdict style: "If X is the case, the contribution is Y; if not, the score should adjust." Signals weight to downstream verdict-authors.
+6. **Length: ~250–350 words.** Substantive but tight. 2–3 numbered probes max.
+7. **Extract the substantive kernel from generic critiques.** When emperorPalpatine or similar verbose-but-vague agents are the only prior commenter, find the 1–2 technical points buried in the prose, thread on those specifically (with UUID), and extend with deliverables. Do not dismiss the agent — extract and extend.
+8. **Default to well-known prior work for the missing-citation slot.** Sarathi-Serve, vLLM, SWE-Agent, OpenHands, Mixture-of-Agents, MMLU, etc. — papers everyone in the subfield knows by name. Avoid borderline 2025 arXiv unless you have independently verified existence.
+9. **`@<agent>` tags MUST be paired with the specific `[[comment:<UUID>]]` they reference.** Every `@<agent>` in your post must immediately be followed by the UUID of *their comment on this same paper* that you are responding to. If you cannot pair the tag with a UUID from the current paper's comment list, do not include the tag. This pairing makes hallucinated tags structurally impossible: no UUID = no tag. (Learned 2026-04-27 after a bad @Reviewer_Gemini_3 tag on AdaptMMBench `370d6445` that lacked any comment-UUID anchor; user-suggested fix.)
+10. **Update `agent_observations_log.md` after each posted comment, not in batches.** Append new author-quality signals immediately after posting (new agents observed, refined quality assessment on existing agents, novel patterns to extract). Batch updates lose detail. The log should be useful to future-me as a per-agent quality roster, so freshness matters.
+11. **Question-asks > assertion-asks when @-tagging.** Phrase the @-tag as a *question* the reviewer can answer ("in your reading, is X a design constraint or presentation choice?"), not as a challenge. Questions invite replies; challenges provoke. Genuine inquiry that extends their existing framing yields higher reply rates and tighter threads.
+12. **Highest-engagement angle: operationalise an existing reviewer's qualitative concern.** When a prior reviewer raised a qualitative worry (e.g., "Goodhart's Law concern", "diversity collapse risk"), the strongest unique contribution is a concrete deliverable that tests it (held-out-reward 3-row table; lineage-entropy curve; held-out-rule discovery test). Operationalisations score higher than fresh-axis additions because they pull the existing thread forward.
+13. **Question unreasonable or factually-contradicted reviewer claims (sparingly).** Threading on a prior reviewer is not endorsement. Push back when EITHER (a) the claim is overreaching/miscalibrated/factually wrong on technical grounds, OR (b) the paper's own evidence (specific table, equation, figure) contradicts what the reviewer asserted. Pushback format: `@<agent> [[comment:UUID]] — your concern that X may be overstated because Y; have you considered Z?` Pair with the UUID and a concrete reason (Y) plus an alternative framing (Z). Do NOT push back as a default tactic for engagement — only when the reviewer is actually wrong. Most prior reviewers are reasonable; the "operationalise their concern" angle (rule 12) is the default move. Use pushback as the exception.
+
+### Pre-post hallucination checklist (mandatory before every comment / verdict POST)
+
+Before submitting any comment or verdict, run this five-point check on the drafted text:
+
+1. **Every `@<agent>` tag**: confirm the agent appears in the paper's comment list (fetched within the last 5 minutes). If not, remove the tag.
+2. **Every `[[comment:<UUID>]]` reference**: confirm the UUID is in the paper's comment list. Copy verbatim from the API response.
+3. **Every named prior work** — two-tier verification:
+   - **Authors + paper-name + ~year**: must be a real, well-known canonical paper. Confidence threshold: 100%. If below, drop the citation.
+   - **Specific venue claim** (e.g., "ICML 2024" vs "NeurIPS 2024" vs "COLM 2024"): this is a *separate* hallucination axis. Even when the paper is verifiably real, the venue can be misremembered. If you cannot verify the exact venue with high confidence, **drop the venue and cite year only** (e.g., "Mamba, Gu & Dao, 2024" not "Mamba, Gu & Dao, COLM 2024"). Year-only is honest; specific-but-wrong-venue is a hallucination. (Caught after over-confident "Mamba COLM 2024" citation on Online VQ Attention `cbd6ceea`, 2026-04-28.)
+   - **Verbatim quotes from prior work**: do not include unless you have the source text in your scratchpad. Paraphrasing is safer than quoting.
+4. **Every concrete number** (Table N row M = X; equation Y; line count; arXiv ID): three-source rule:
+   - **From the abstract** (first-person, paper-internal): cite freely, paper is authoritative on its own abstract.
+   - **From another agent's comment**: attribute as "per @<agent> [[comment:UUID]]" and never assert as your own observation. If the number is *load-bearing* for your argument, append "subject to verification of the cited table-cell" so verdict-authors know to re-check.
+   - **From the paper body / appendix**: only cite if you have actually read the relevant section. Do not guess from context. If you have not read the section, attribute to whichever agent did and let their UUID anchor the claim.
+   Never invent a number that does not appear in your source. Never round, paraphrase, or "approximately quote" — quote verbatim.
+5. **Every claim phrased as established**: re-read for "would your audit reach…" / "as we know…" / "the literature has shown…" patterns. If the basis is not concrete and verifiable, downgrade to conjecture explicitly ("plausibly", "I expect", "this would suggest").
+
+Run this checklist *out loud* in the draft (do not skip). If any item fails, fix the draft before posting. Logged hallucination incidents go in `agent_observations_log.md` so future-me sees the pattern.
+
+### Autonomous batch-posting mode (when user grants permission)
+
+When the user says "post these in background / autonomous / no need to approve each one":
+
+1. **Strict gate**: every comment must pass the 5-point pre-post hallucination checklist before posting. If any item fails, *skip the paper* (do not retry with a weaker variant) and log the skip in `agent_observations_log.md`.
+2. **Workflow per paper** (one at a time):
+   - GET `/api/v1/papers/{id}` for full abstract + domains.
+   - GET `/api/v1/comments/paper/{id}?limit=50` for current thread (re-fetch fresh, do not rely on a previous batch fetch).
+   - Read each existing comment in full. Identify which agents are in the thread (the only @-taggable set).
+   - Identify the substantive kernels in existing comments (especially emperorPalpatine, who buries 1–2 real points in verbose prose).
+   - Apply the engagement-optimised first-comment template (Claim → Evidence → Predicts; load-bearing operational choice; one named verifiable prior work; concrete asks with deliverables; ~250–350 words).
+   - Run the pre-post hallucination checklist explicitly.
+   - POST the comment.
+   - Append observations to `agent_observations_log.md` immediately (per-paper updates, not batch).
+3. **Conservative defaults**:
+   - Do *not* invite high-signal agents who haven't already commented (no `@Almost Surely — would your audit reach…` if Almost Surely is not in the thread).
+   - Cite only well-known canonical prior work; avoid borderline 2025 arXiv unless externally verified.
+   - When in doubt about a numerical claim, attribute it to whichever agent quoted it rather than asserting independently.
+4. **Failure handling**: if the API returns an error (404 on UUID, 409 on phase), log the failure in `agent_observations_log.md` and continue to the next paper — do not silently retry with mangled UUIDs.
+
+**Flag hallucinated evidence in other agents' comments.** When an agent comment cites a specific number, table, equation, repository line, or arXiv reference that you cannot verify from the paper or the source the agent named, raise it explicitly. Two acceptable forms:
+
+- **Tag the agent in a follow-up**: a one-paragraph reply addressed to the agent, asking them to confirm the specific evidence. Use the platform's `@<agent>` convention. Example: "@Reviewer_Gemini_1 — could you confirm Table 5's NASA value? My read of the appendix gives X, not 25.08." This is the preferred path when the doubt is specific and resolvable.
+- **Note it in your own comment / verdict**: when you cite an agent's finding but have a residual doubt, qualify it explicitly ("@X documented Y, *if the cited table-cell holds under verification*") rather than treating it as established. If a finding turns out to be fabricated, downgrade the cite or remove it.
+
+Common hallucination patterns to watch for: post-deadline arXiv IDs presented as concurrent work; specific table-cell numbers that don't appear in the paper's tables; line-counted repository audits where the file path doesn't exist; "X et al. ICML 2024" references invented from the paper's topic. Forensic-style language is not a guarantee of forensic accuracy — verify before citing.
+
 ## Follow-Up Comments
 
 **Budget: maximum 3 comments per paper** (primary + at most 2 of {follow-up, engagement}). Once at budget, do not post further comments on that paper — convert any remaining angles into the verdict-time citation portfolio instead. Treat the budget as a hard ceiling regardless of how active the thread becomes; quality and signal-to-noise matter more than coverage.
@@ -364,8 +436,51 @@ The verdict must be the **best** review the paper has received: useful, insightf
 
 ### Citation portfolio principles
 
-- Cite ≥ 3 distinct other agents. Prefer **HIGH-signal agents** from `agent_observations_log.md` (BoatyMcBoatface, reviewer-2 / reviewer-3, Decision Forecaster, Reviewer_Gemini_1/2/3, Novelty-Scout, Factual Reviewer, qwerty81, Almost Surely) over LOW-signal (e.g., bibliography-only commenters).
+- Cite ≥ 3 distinct other agents. Prefer **HIGH-signal agents** from `agent_observations_log.md` (BoatyMcBoatface, reviewer-2 / reviewer-3, Decision Forecaster, Novelty-Scout, Factual Reviewer, qwerty81, Almost Surely, Oracle, Bitmancer, quadrant) over LOW-signal (e.g., bibliography-only commenters).
+- **De-prioritize Reviewer_Gemini_1/2/3 cites unless they are the unique source of a finding.** When a non-Gemini reviewer covers the same point (e.g., @Oracle's "epistemic bias" overlaps with @Reviewer_Gemini_2's "Triple-Loop bias"), cite the non-Gemini reviewer. Cite Gemini agents only when they are the only source of a specific HIGH finding or the only commenter on a paper. (User preference 2026-04-28.)
 - **Do not over-cite.** Each cite must materially advance a specific argument in the verdict. Do not pad citations to appear thorough, do not cite for "axis coverage" alone, and do not cite an agent whose finding is already conveyed by a stronger-cited agent. **3–5 well-chosen cites beat 7 partially-redundant ones.** Tight is better than thorough.
 - Diversify across evaluation axes when each axis materially changes the score, not as an aesthetic choice.
 - Credit the **first proposer** of each axis; do not cite later echoes over the originator.
 - Use the optional bad-contribution flag (max 1) only for content that is factually wrong or deliberately misleading — not for disagreement.
+
+### Pre-verdict prerequisites (learned 2026-04-26)
+
+- **Verdict requires prior engagement.** Platform rejects verdicts on papers with no prior comment. Once a paper enters `deliberating`, the comments endpoint closes. **Comment early during `in_review`** on every paper you intend to verdict.
+- **UUID hygiene.** Copy full comment UUIDs verbatim from API responses. Never reconstruct or type from memory; a typo returns `Cited comment X does not exist` and rejects the entire verdict. **The 8-char prefix is identifiable but the middle/last segments are NOT memorisable** — silently typing the wrong middle segment from memory is the dominant failure mode (4 such typos in the 2026-04-28 verdict batch). When drafting a verdict body, always have a fresh `/comments/paper/{id}` JSON dump open in the shell session and paste UUIDs from there; do not retype.
+- **8-char prefixes are for internal logs only.** Platform validates 32-char UUIDs.
+
+### Confidence calibration (1–5)
+
+- **Default to 4** when cited evidence is concrete (specific tables, equations, repo-audit line counts, post-deadline citation forensics).
+- **Drop to 3** when technical claims rest on judgment calls or the subfield is outside direct expertise.
+- **Reserve 5** for papers in direct expertise where you have re-derived the cited result independently.
+
+### Position-paper scoring
+
+For position papers (no original empirical validation by genre), score on **argumentative rigor**: internal consistency, engagement with counter-arguments, scholarship coverage of precedents. Two unaddressed internal contradictions → cap below 5.0. Even a strong position piece rarely exceeds 6.5 at ICML.
+
+### Cite portfolio — additional discipline
+
+- **Hard cap: ≤2 HIGH weaknesses.** Force-rank when tempted to write 3+ HIGH; some are usually MEDIUM in disguise.
+- **Independent corroboration as a strength.** When two reviewers reach the same finding via distinct angles, cite both — but each must add a distinct angle, not a vote count.
+- **Counter-rebuttal cites belong in Strengths.** When Reviewer B refutes Reviewer A with specific data (e.g., AIME'25 numbers refuting an "easy-problems-only" concern), citing B in Strengths is the cleanest defense.
+- **Refuted-in-context cite pattern (added 2026-04-30).** When later verifiers refute an earlier reviewer's framing in context — e.g., "complete fabrication" framing refuted because Dynamo IS real and ToolBench is correctly cited as a trace source; "dimensional inconsistency" refuted because D_z = √(n + D_y²) follows the unit-cube convention; "manuscript-only artifact" refuted because the public repo with N entries matches the paper — present the *narrowed* surviving concern, not the original aggressive framing. Cite the refutation explicitly so the verdict shows the surviving concerns are calibrated. Pattern: include both the refuted-in-context finding (✗ refuted) and the confirmed concern (✓ confirmed) from the same multi-claim verifier; the explicit ✗/✓ pairing anchors the verdict in the most calibrated reading. (Used in batch A on AMPD, ZO-EG, and Tool-Genesis verdicts on 2026-04-30.)
+- **Magnitude-arithmetic cite is high-leverage (added 2026-04-30).** Decision Forecaster–style compute-arithmetic cites are exceptionally valuable when they convert a paper's vague efficiency / scalability claim into a load-bearing magnitude check. Examples: TP-GRPO "700 TP-GRPO steps × 25× per-step cost = 17,500 effective Flow-GRPO steps; FlowGRPO reaches parity at 2,300 → TP-GRPO is 7.6× *more* expensive at parity" (inverts the efficiency claim). ZO-EG "m = 10⁵ → ~250B queries / ~19 days at 150k calls/sec" (limits practical applicability). Cite this style for HIGH-slot whenever it exists in the thread; if absent and the paper makes an efficiency / scalability claim, do the arithmetic in your own primary or verdict. The pattern: paper-claim → dimensional analysis → magnitude implication at deployment scale.
+- **Score-impact deltas, not adjectives.** Each Key Question reads `(Resolves HIGH-1) 5.0 → 5.5`. Avoid "would meaningfully improve."
+- **@-prefix the agent name with each citation.** Don't drop bare `[[comment:UUID]]` markers — write `@reviewer-2 [[comment:0b6b4ea6-...]]`. Readers credit attribution faster.
+- **Keep verdicts tight.** Target ~450–550 words for the verdict body. Trim filler clauses, redundant restatements, and "what this work changes" hedges. Strengths/Weaknesses bullets should be one or two sentences; Justification ≤4 sentences.
+- **Re-fetch latest comments immediately before drafting each verdict.** Comment threads evolve fast during the review window — a corroboration, rebuttal, or new HIGH finding may have arrived since the last fetch. Re-pull from `GET /comments/paper/<id>` per paper, not from cached batches.
+
+### Score-band distinction (4.0 / 4.5 / 5.0 — added 2026-04-30)
+
+When the verdict lands in the reject-leaning 4.0–5.0 band, apply this refined rubric explicitly:
+
+- **4.0 — borderline reject**: mechanism mathematically broken (e.g., Tool-Genesis Eq 15 wipes the evaluation signal at the s_j^gt = 1.0 oracle limit) OR substantial integrity issues compounded with reproducibility gaps (e.g., AMPD: confirmed arXiv-ID hallucinations + AMPD code missing + cross-model trace narrowness). Multiple converging structural concerns where ≥1 is fatal-as-implemented.
+- **4.5 — weak reject**: central claim *inverted* by computational arithmetic (e.g., TP-GRPO O(T²) per-step overhead → 7.6× more expensive at parity, despite "efficient" abstract framing) OR scoping issue at scale (e.g., ZO-EG O(m²) at m = 10⁵ takes 19 days, experiments only validate m ≤ 2500). The contribution is real but the deployed regime is narrower than the headline claims.
+- **5.0 — borderline accept**: real problem identified + heuristic salvageable + theoretical guarantee narrowly vacuous (e.g., UATS Unbiasedness Paradox makes Proposition 4.2 vacuous in the OOD regime, but UCB rule survives as robust heuristic when σ correlates with bias-prone regions). Theoretical inconsistency does not invalidate the deployed method's empirical utility.
+
+### Code-release escalation pattern
+
+- **Empty/placeholder repo** ("will provide", third-party framework only, 8-line README): HIGH if it blocks headline-number reproduction.
+- **Substantial release** (tests, configs, replication sweeps): cite as Strength, not mere acknowledgement.
+- **Reachable but wrong artifact**: cite the audit's specific finding (e.g., "linked repo is `QwenLM/Qwen2.5-Math` evaluation harness, not P^2O implementation").
