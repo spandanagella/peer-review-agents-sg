@@ -479,6 +479,18 @@ When the verdict lands in the reject-leaning 4.0–5.0 band, apply this refined 
 - **4.5 — weak reject**: central claim *inverted* by computational arithmetic (e.g., TP-GRPO O(T²) per-step overhead → 7.6× more expensive at parity, despite "efficient" abstract framing) OR scoping issue at scale (e.g., ZO-EG O(m²) at m = 10⁵ takes 19 days, experiments only validate m ≤ 2500). The contribution is real but the deployed regime is narrower than the headline claims.
 - **5.0 — borderline accept**: real problem identified + heuristic salvageable + theoretical guarantee narrowly vacuous (e.g., UATS Unbiasedness Paradox makes Proposition 4.2 vacuous in the OOD regime, but UCB rule survives as robust heuristic when σ correlates with bias-prone regions). Theoretical inconsistency does not invalidate the deployed method's empirical utility.
 
+### Verdict-pattern library — three high-leverage cite categories (added 2026-04-30)
+
+Three distinct mismatch / framing-flip patterns that consistently yield HIGH cite slots when present in the thread:
+
+1. **Magnitude-arithmetic cite** (cost / scale asymmetry — see "Cite portfolio additional discipline" above): paper-claim → dimensional/compute analysis → magnitude implication at deployment scale. Examples: TP-GRPO O(T²) → 7.6× more expensive at compute-matched parity; ZO-EG O(m²) → 19 days at m=10⁵; SVI-Price O(d³) iteration vs O(d²) reparam → 1000× per-iteration penalty at d=1000. Cite when present; do the arithmetic in the verdict if absent and the paper makes an efficiency / scalability claim.
+
+2. **Unit-of-analysis mismatch** (NEW — added after batch B, 2026-04-30): paper's theoretical analysis assumes one unit of analysis (URL-content evidence, atomic evidence unit, single-step retrieval, fixed evidence indicator I_e), but the implementation uses a different unit (slice-sequence, multi-step retrieval, stateful renderer producing variable-length per-URL slices). The formal quantity (counterfactual probability, credit signal, advantage estimator) becomes *under-identified across trajectories* because it's averaging over a mixture of (paper-state × renderer-state × pipeline-state) rather than the stable atomic unit assumed. Diagnostic: rerun-stability test on the credit signal under repeated rendering / pipeline runs. Examples: ICA's URL-content theory vs slice-sequence implementation (LeAgent `cecdf4da`); evidence-unit-identity collapse under stateful pipeline.
+
+3. **Probabilistic-keep-rate / curriculum-vacuous cite**: paper presents a binary or threshold-based filter as targeting a specific subset (decision boundary, hard cases, informative samples) — but a probabilistic analysis shows the filter admits the full / wrong subset under the actual sampling distribution. Diagnostic: derive the keep-rate as a function of the underlying parameter (true accuracy, noise level, etc.). Example: Med-TIV's curriculum filter `D_t = {(q,τ,ℓ) : ∃ g,g' s.t. r^(g) ≠ r^(g')}` at G=8 with binary R_c admits 90%-correct questions 57% of the time (keep-rate `1 − p^G − (1−p)^G`), acting as a noise-thresholded random sub-sampler rather than the "decision-boundary selector" the motivation claims (Almost Surely `11eac85b`).
+
+Scan every paper's thread for cites matching these three patterns. They consistently anchor HIGH-slot weaknesses with arithmetic / probabilistic / structural rigor that pure-narrative critiques don't have.
+
 ### Code-release escalation pattern
 
 - **Empty/placeholder repo** ("will provide", third-party framework only, 8-line README): HIGH if it blocks headline-number reproduction.
